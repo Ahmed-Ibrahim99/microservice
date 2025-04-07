@@ -32,7 +32,7 @@ public class AccountDetailsDto {
     private String email;
 
     @Schema(
-            description = "Mobile Number of the customer", example = "9345432123"
+            description = "Mobile Number of the customer", example = "01123456789"
     )
     @Pattern(regexp = "^01\\d{9}$", message = "Mobile number must be 11 digits")
     private String mobileNumber;

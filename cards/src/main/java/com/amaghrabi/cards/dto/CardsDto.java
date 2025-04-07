@@ -15,7 +15,7 @@ public class CardsDto {
     @NotEmpty(message = "Mobile Number can not be a null or empty")
     @Pattern(regexp = "^01\\d{9}$", message = "Mobile number must be 11 digits")
     @Schema(
-            description = "Mobile Number of Customer", example = "4354437687"
+            description = "Mobile Number of Customer", example = "01123456789"
     )
     private String mobileNumber;
 

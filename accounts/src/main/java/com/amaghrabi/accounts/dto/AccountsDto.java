@@ -30,7 +30,7 @@ public class AccountsDto {
     @Schema(
             description = "Account Number of Bank account", example = "3454433243"
     )
-    @Pattern(regexp = "(^$|[0-9]{10})", message = "AccountNumber must be 10 digits")
+    @Pattern(regexp = "(^$|\\d{10})", message = "AccountNumber must be 10 digits")
     private String accountNumber;
 
     @Schema(
