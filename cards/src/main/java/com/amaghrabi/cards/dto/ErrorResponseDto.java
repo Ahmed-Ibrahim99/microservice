@@ -1,28 +1,23 @@
-package com.amaghrabi.accounts.dto;
+package com.amaghrabi.cards.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 
+@Data
+@AllArgsConstructor
 @Schema(
         name = "ErrorResponse",
         description = "Schema to hold error response information"
 )
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
 public class ErrorResponseDto {
-
     @Schema(
             description = "API path invoked by client"
     )
-    private String apiPath;
+    private  String apiPath;
 
     @Schema(
             description = "Error code representing the error happened"
@@ -32,7 +27,7 @@ public class ErrorResponseDto {
     @Schema(
             description = "Error message representing the error happened"
     )
-    private String errorMessage;
+    private  String errorMessage;
 
     @Schema(
             description = "Time representing when the error happened"

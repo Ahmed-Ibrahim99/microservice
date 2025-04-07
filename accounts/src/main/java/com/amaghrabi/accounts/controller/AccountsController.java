@@ -13,6 +13,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -25,13 +27,10 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @RequestMapping(path = "/accounts")
+@RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class AccountsController {
 
     private final AccountsService accountsService;
-
-    public AccountsController(AccountsService accountsService) {
-        this.accountsService = accountsService;
-    }
 
     @Operation(
             summary = "Create Account REST API",

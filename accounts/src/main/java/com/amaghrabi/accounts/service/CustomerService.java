@@ -7,22 +7,18 @@ import com.amaghrabi.accounts.mapper.CustomerMapper;
 import com.amaghrabi.accounts.model.Customer;
 import com.amaghrabi.accounts.repository.AccountsRepository;
 import com.amaghrabi.accounts.repository.CustomerRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
     private final AccountsRepository accountsRepository;
-
-    public CustomerService(CustomerRepository customerRepository,
-                           AccountsRepository accountsRepository) {
-        this.customerRepository = customerRepository;
-        this.accountsRepository = accountsRepository;
-    }
 
     public void createCustomer(CustomerDto customerDto) {
         try {

@@ -3,9 +3,7 @@ package com.amaghrabi.accounts.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Schema(
         name = "Accounts",
@@ -14,6 +12,8 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
+@Getter
 public class AccountsDto {
     @Schema(
             description = "Customer id for account", example = "1"
@@ -38,36 +38,4 @@ public class AccountsDto {
     )
     @NotEmpty(message = "BranchAddress can not be a null or empty")
     private String branchAddress;
-
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
-
-    public String getAccountType() {
-        return accountType;
-    }
-
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
-    }
-
-    public String getBranchAddress() {
-        return branchAddress;
-    }
-
-    public void setBranchAddress(String branchAddress) {
-        this.branchAddress = branchAddress;
-    }
-
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
 }

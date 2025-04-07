@@ -9,21 +9,17 @@ import com.amaghrabi.accounts.model.Accounts;
 import com.amaghrabi.accounts.model.Customer;
 import com.amaghrabi.accounts.repository.AccountsRepository;
 import com.amaghrabi.accounts.repository.CustomerRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.Random;
 
 @Service
+@RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class AccountsService {
     private final AccountsRepository accountsRepository;
     private final CustomerRepository customerRepository;
-
-    public AccountsService(AccountsRepository accountsRepository,
-                           CustomerRepository customerRepository) {
-        this.accountsRepository = accountsRepository;
-        this.customerRepository = customerRepository;
-    }
 
     public void createAccount(AccountsDto accountsDto) {
         try {

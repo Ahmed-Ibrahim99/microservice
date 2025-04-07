@@ -1,19 +1,16 @@
-package com.amaghrabi.accounts.dto;
+package com.amaghrabi.loans.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @Schema(
         name = "Response",
         description = "Schema to hold successful response information"
 )
-@ToString
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-@Getter
-@Setter
 public class ResponseDto {
-
     @Schema(
             description = "Status code in the response"
     )
