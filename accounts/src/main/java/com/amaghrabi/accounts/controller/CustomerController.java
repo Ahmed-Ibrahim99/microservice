@@ -8,7 +8,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
@@ -34,21 +33,20 @@ public class CustomerController {
 
     @Operation(
             summary = "Create Customer REST API",
-            description = "REST API to create a new Customer"
-    )
-    @ApiResponses({
-            @ApiResponse(
-                    responseCode = "201",
-                    description = "HTTP Status CREATED"
-            ),
-            @ApiResponse(
-                    responseCode = "500",
-                    description = "HTTP Status Internal Server Error",
-                    content = @Content(
-                            schema = @Schema(implementation = ErrorResponseDto.class)
+            description = "REST API to create a new Customer",
+            responses = {
+                    @ApiResponse(
+                            responseCode = "201",
+                            description = "HTTP Status CREATED"
+                    ),
+                    @ApiResponse(
+                            responseCode = "500",
+                            description = "HTTP Status Internal Server Error",
+                            content = @Content(
+                                    schema = @Schema(implementation = ErrorResponseDto.class)
+                            )
                     )
-            )
-    }
+            }
     )
     @PostMapping
     public ResponseEntity<ResponseDto> createCustomer(@Valid @RequestBody CustomerDto customerDto) {
@@ -62,29 +60,28 @@ public class CustomerController {
 
     @Operation(
             summary = "Update Customer REST API",
-            description = "REST API to update Customer based on mobile number"
-    )
-    @ApiResponses({
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "HTTP Status OK"
-            ),
-            @ApiResponse(
-                    responseCode = "417",
-                    description = "Expectation Failed"
-            ),
-            @ApiResponse(
-                    responseCode = "500",
-                    description = "HTTP Status Internal Server Error",
-                    content = @Content(
-                            schema = @Schema(implementation = ErrorResponseDto.class)
+            description = "REST API to update Customer based on mobile number",
+            responses = {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "HTTP Status OK"
+                    ),
+                    @ApiResponse(
+                            responseCode = "417",
+                            description = "Expectation Failed"
+                    ),
+                    @ApiResponse(
+                            responseCode = "500",
+                            description = "HTTP Status Internal Server Error",
+                            content = @Content(
+                                    schema = @Schema(implementation = ErrorResponseDto.class)
+                            )
                     )
-            )
-    }
+            }
     )
     @PutMapping
     public ResponseEntity<ResponseDto> updateCustomer(
-            @Pattern(regexp = "(^$|[0-9]{11})", message = "Mobile number must be 11 digits")
+            @Pattern(regexp = "^01\\d{9}$", message = "Mobile number must be 11 digits")
             @RequestParam String mobileNumber,
             @Valid @RequestBody CustomerDto customerDto) {
         boolean isUpdated = customerService.updateCustomer(mobileNumber, customerDto);
@@ -102,25 +99,24 @@ public class CustomerController {
 
     @Operation(
             summary = "Delete Customer & Account Related to it REST API",
-            description = "REST API to delete Customer &  Account based on customer id"
-    )
-    @ApiResponses({
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "HTTP Status OK"
-            ),
-            @ApiResponse(
-                    responseCode = "417",
-                    description = "Expectation Failed"
-            ),
-            @ApiResponse(
-                    responseCode = "500",
-                    description = "HTTP Status Internal Server Error",
-                    content = @Content(
-                            schema = @Schema(implementation = ErrorResponseDto.class)
+            description = "REST API to delete Customer & Account based on customer id",
+            responses = {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "HTTP Status OK"
+                    ),
+                    @ApiResponse(
+                            responseCode = "417",
+                            description = "Expectation Failed"
+                    ),
+                    @ApiResponse(
+                            responseCode = "500",
+                            description = "HTTP Status Internal Server Error",
+                            content = @Content(
+                                    schema = @Schema(implementation = ErrorResponseDto.class)
+                            )
                     )
-            )
-    }
+            }
     )
     @DeleteMapping
     public ResponseEntity<ResponseDto> deleteCustomer(@RequestParam Long customerId) {
