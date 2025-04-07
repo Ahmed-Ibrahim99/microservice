@@ -34,14 +34,14 @@ public class AccountDetailsDto {
     @Schema(
             description = "Mobile Number of the customer", example = "9345432123"
     )
-    @Pattern(regexp = "(^$|[0-9]{11})", message = "Mobile number must be 11 digits")
+    @Pattern(regexp = "^01\\d{9}$", message = "Mobile number must be 11 digits")
     private String mobileNumber;
 
     @Schema(
             description = "Account Number of Bank account", example = "3454433243"
     )
     @NotEmpty(message = "AccountNumber can not be a null or empty")
-    @Pattern(regexp = "(^$|[0-9]{10})", message = "AccountNumber must be 10 digits")
+    @Pattern(regexp = "(^$|\\d{10})", message = "AccountNumber must be 10 digits")
     private Long accountNumber;
 
     @Schema(

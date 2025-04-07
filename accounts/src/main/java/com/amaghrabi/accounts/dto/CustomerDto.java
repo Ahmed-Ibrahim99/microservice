@@ -37,6 +37,6 @@ public class CustomerDto {
             description = "Mobile Number of the customer", example = "9345432123"
     )
     @NotEmpty(message = "Mobile Number can not be a null or empty")
-    @Pattern(regexp = "(^$|[0-9]{11})", message = "Mobile number must be 11 digits")
+    @Pattern(regexp = "^01\\d{9}$", message = "Mobile number must be 11 digits")
     private String mobileNumber;
 }
