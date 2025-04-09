@@ -6,6 +6,9 @@ import com.amaghrabi.accounts.model.Customer;
 
 public class AccountsDetailsMapper {
 
+    private AccountsDetailsMapper() {
+    }
+
     public static AccountDetailsDto mapToAccountDetailsDto(Accounts account,
                                                            Customer customer,
                                                            AccountDetailsDto accountDetailsDto) {

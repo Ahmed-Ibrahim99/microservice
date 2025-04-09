@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-@EnableJpaAuditing(auditorAwareRef = "AuditorAwareImpl")
+@EnableJpaAuditing(auditorAwareRef = "auditorAwareImpl")
 @OpenAPIDefinition(
         info = @Info(
                 title = "Accounts microservice REST API Documentation",

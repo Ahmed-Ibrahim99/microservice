@@ -4,6 +4,10 @@ import com.amaghrabi.loans.dto.LoansDto;
 import com.amaghrabi.loans.model.Loan;
 
 public class LoansMapper {
+
+    private LoansMapper() {
+    }
+
     public static LoansDto mapToLoansDto(Loan loans, LoansDto loansDto) {
         loansDto.setLoanNumber(loans.getLoanNumber());
         loansDto.setLoanType(loans.getLoanType());

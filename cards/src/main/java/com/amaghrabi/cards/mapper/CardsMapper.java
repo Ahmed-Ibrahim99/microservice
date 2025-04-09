@@ -4,6 +4,10 @@ import com.amaghrabi.cards.dto.CardsDto;
 import com.amaghrabi.cards.model.Card;
 
 public class CardsMapper {
+
+    private CardsMapper() {
+    }
+
     public static CardsDto mapToCardsDto(Card cards, CardsDto cardsDto) {
         cardsDto.setCardNumber(cards.getCardNumber());
         cardsDto.setCardType(cards.getCardType());

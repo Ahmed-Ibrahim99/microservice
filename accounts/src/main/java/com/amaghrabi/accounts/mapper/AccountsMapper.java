@@ -5,6 +5,9 @@ import com.amaghrabi.accounts.model.Accounts;
 
 public class AccountsMapper {
 
+    private AccountsMapper() {
+    }
+
     public static AccountsDto mapToAccountsDto(Accounts accounts, AccountsDto accountsDto) {
         accountsDto.setAccountType(accounts.getAccountType());
         accountsDto.setBranchAddress(accounts.getBranchAddress());

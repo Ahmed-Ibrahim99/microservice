@@ -4,6 +4,11 @@ import com.amaghrabi.accounts.dto.CustomerDto;
 import com.amaghrabi.accounts.model.Customer;
 
 public class CustomerMapper {
+
+    private CustomerMapper() {
+
+    }
+
     public static CustomerDto mapToCustomerDto(Customer customer, CustomerDto customerDto) {
         customerDto.setName(customer.getName());
         customerDto.setEmail(customer.getEmail());
